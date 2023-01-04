@@ -33,6 +33,7 @@
   },
   "scripts": {
     "dev": "ts-node src/index.ts",
+    "start": "node build/index.js",
     "build": "tsc",
     "gen:lockfile": "yarn install --mode update-lockfile",
     "lint": "eslint --ext .js,.ts .",
