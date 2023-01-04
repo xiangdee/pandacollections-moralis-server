@@ -1,23 +1,26 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-require("./generated/evmApi");
-require("./generated/solApi");
-const authService_1 = require("../src/auth/authService");
-Parse.Cloud.define('requestMessage', async ({ params }) => {
-    const { address, chain, networkType } = params;
-    const message = await (0, authService_1.requestMessage)({
-        address,
-        chain,
-        networkType,
-    });
-    return { message };
+declare const Parse: any;
+import './generated/evmApi';
+import './generated/solApi';
+import { requestMessage } from '../src/auth/authService';
+
+Parse.Cloud.define('requestMessage', async ({ params }: any) => {
+  const { address, chain, networkType } = params;
+
+  const message = await requestMessage({
+    address,
+    chain,
+    networkType,
+  });
+
+  return { message };
 });
+
 Parse.Cloud.define('getPluginSpecs', () => {
-    // Not implemented, only excists to remove client-side errors when using the moralis-v1 package
-    return [];
+  // Not implemented, only excists to remove client-side errors when using the moralis-v1 package
+  return [];
 });
+
 Parse.Cloud.define('getServerTime', () => {
-    // Not implemented, only excists to remove client-side errors when using the moralis-v1 package
-    return null;
+  // Not implemented, only excists to remove client-side errors when using the moralis-v1 package
+  return null;
 });
-//# sourceMappingURL=main.js.map
